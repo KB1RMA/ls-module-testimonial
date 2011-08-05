@@ -35,14 +35,14 @@
 			'controller_url' => '/testimonial/statements',
 			'controller_class' => 'Testimonial_Statements',
 			'module_name' => 'testimonial',
-			'module_title' => 'Testimonial Statements',
+			'module_title' => 'Testimonial',
 			'module_path' => '/modules/testimonial'
 		);
 		
 		protected $required_permissions = array('testimonial:manage_statements');
 
 		public function __construct() {
-			$this->form_preview_title = "Testimonial Statements";
+			$this->form_preview_title = "{$this->strings['module_title']} {$this->strings['controller_title']}";
 			$this->form_create_title = "New {$this->strings['model_title']}";
 			$this->form_edit_title = "Edit {$this->strings['model_title']}";
 			$this->form_model_class = $this->strings['model_class'];
