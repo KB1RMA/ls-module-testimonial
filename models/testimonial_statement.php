@@ -10,8 +10,7 @@
 		);
 		
 		public $has_many = array(
-			'images' => array('class_name' => 'Db_File', 'foreign_key' => 'master_object_id', 'conditions' => "master_object_class='Testimonial_Statement' and field='images'", 'order' => 'sort_order, id', 'delete' => true),
-			'files' => array('class_name' => 'Db_File', 'foreign_key' => 'master_object_id', 'conditions' => "master_object_class='Testimonial_Statement' and field='files'", 'order' => 'sort_order, id', 'delete' => true)
+			'images' => array('class_name' => 'Db_File', 'foreign_key' => 'master_object_id', 'conditions' => "master_object_class='Testimonial_Statement' and field='images'", 'order' => 'sort_order, id', 'delete' => true)
 		);
 		
 		protected $api_added_columns = array();
@@ -39,7 +38,6 @@
 			$this->define_column('sort_order', 'Sort Order')->validation()->fn('trim')->unique("This sort order is already in use.");
 			$this->define_column('is_enabled', 'Enabled');
 			$this->define_multi_relation_column('images', 'images', 'Images', '@name')->invisible();
-			$this->define_multi_relation_column('files', 'files', 'Files', '@name')->invisible();
 			
 			$this->defined_column_list = array();
 			Backend::$events->fireEvent("{$this->strings['module_name']}:onExtend{$this->strings['model_title']}Model", $this, $context);
@@ -65,8 +63,6 @@
 			$editor_config->apply_to_form_field($field);
 			
 			$this->add_form_field('images')->renderAs(frm_file_attachments)->renderFilesAs('image_list')->addDocumentLabel('Add image(s)')->tab('Images')->noAttachmentsLabel('There are no images uploaded.')->noLabel()->imageThumbSize(555)->fileDownloadBaseUrl(url('ls_backend/files/get/'));
-			
-			$this->add_form_field('files')->renderAs(frm_file_attachments)->renderFilesAs('file_list')->addDocumentLabel('Add file(s)')->tab('Files')->noAttachmentsLabel('There are no files uploaded.')->noLabel()->fileDownloadBaseUrl(url('ls_backend/files/get/'));
 			
 			Backend::$events->fireEvent("{$this->strings['module_name']}:onExtend{$this->strings['model_title']}Form", $this, $context);
 			
