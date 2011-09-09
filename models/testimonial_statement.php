@@ -94,7 +94,7 @@
 			foreach($ids as $index => $id) {
 				$order = $orders[$index];
 				
-				Db_DbHelper::query("update {$this->table_name} set sort_order=:sort_order where id=:id", array(
+				Db_DbHelper::query("update testimonial_statements set sort_order=:sort_order where id=:id", array(
 					'sort_order' => $order,
 					'id' => $id
 				));
@@ -102,7 +102,7 @@
 		}
 		
 		public function after_create() {
-			Db_DbHelper::query("update {$this->table_name} set sort_order=:sort_order where id=:id", array(
+			Db_DbHelper::query("update testimonial_statements set sort_order=:sort_order where id=:id", array(
 				'sort_order' => $this->id,
 				'id' => $this->id
 			));

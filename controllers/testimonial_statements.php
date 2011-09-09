@@ -89,7 +89,7 @@
 		
 		protected function reorder_onSetOrders() {
 			try {
-				Press_Article::set_orders(post('ids'), post('sort_orders'));
+				Testimonial_Statement::set_orders(post('item_ids'), post('sort_orders'));
 			}
 			catch(Exception $ex) {
 				Phpr::$response->ajaxReportException($ex, true, true);

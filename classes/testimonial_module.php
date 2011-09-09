@@ -1,6 +1,6 @@
 <?
 
-	define('PATH_MOD_TESTIMONIAL', PATH_APP . '/modules/testimonial');
+	define('PATH_MOD_TESTIMONIAL', realpath(dirname(__FILE__) . '/../'));
 	
 	class Testimonial_Module extends Core_ModuleBase {
 		const PATH = PATH_MOD_TESTIMONIAL;
@@ -8,7 +8,7 @@
 		protected function get_info() {
 			return new Core_ModuleInfo(
 				"Testimonial",
-				"Adds testimonials to your store.",
+				"Provides testimonials for your store.",
 				"Limewheel Creative, Inc."
 			);
 		}
@@ -22,8 +22,8 @@
 			$user = Phpr::$security->getUser();
 			
 			$tabs = array(
-				'statements' => array('statements', 'Statements', 'statements'),
-				'settings' => array('settings', 'Settings', 'settings')
+				'statements' => array('statements', 'Statements', 'manage_statements'),
+				'settings' => array('settings', 'Settings', 'manage_settings')
 			);
 
 			$first_tab = null;
