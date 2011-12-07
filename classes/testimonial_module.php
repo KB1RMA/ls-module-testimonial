@@ -9,7 +9,7 @@
 			return new Core_ModuleInfo(
 				"Testimonial",
 				"Provides testimonials for your store.",
-				"Limewheel Creative, Inc."
+				"Limewheel Creative Inc."
 			);
 		}
 		

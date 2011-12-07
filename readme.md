@@ -2,7 +2,7 @@
 Provides testimonials for your store.
 
 ## Installation
-1. Download [Testimonial](https://github.com/limewheel/ls-module-testimonial/zipball/master)
+1. Download [Testimonial](https://github.com/limewheel/ls-module-testimonial/zipball/master).
 1. Create a folder named `testimonial` in the `modules` directory.
 1. Extract all files into the `modules/testimonial` directory (`modules/testimonial/readme.md` should exist).
 1. Setup your code as described in the `Usage` section.
