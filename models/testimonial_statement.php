@@ -112,4 +112,16 @@
 
 			$this->sort_order = $this->id;
 		}
+
+		/**
+		 * This is a special static method to be used if a random Statement is needed in a certain place.
+		 *
+		 * Example: $statement = Testimonial_Statement::get_random();
+		 */
+		public static function get_random() {
+			$id = Db_DbHelper::query('SELECT id FROM testimonial_statements ORDER BY RAND() LIMIT 1');
+			$statement = Testimonial_Statement::create()->find(intval($id));
+			return $statement;
+		}
+
 	}
