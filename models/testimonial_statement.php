@@ -119,8 +119,8 @@
 		 * Example: $statement = Testimonial_Statement::get_random();
 		 */
 		public static function get_random() {
-			$id = Db_DbHelper::query('SELECT id FROM testimonial_statements ORDER BY RAND() LIMIT 1');
-			$statement = Testimonial_Statement::create()->find(intval($id));
+			$row = Db_DbHelper::object('SELECT id FROM testimonial_statements ORDER BY RAND() LIMIT 1');
+			$statement = Testimonial_Statement::create()->find($row->id);
 			return $statement;
 		}
 
