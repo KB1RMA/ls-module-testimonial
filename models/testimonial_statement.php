@@ -38,6 +38,7 @@
 			$this->define_column('content', 'Content')->invisible()->validation()->fn('trim');
 			$this->define_column('sort_order', 'Sort Order')->validation()->fn('trim')->unique("This sort order is already in use.");
 			$this->define_column('is_enabled', 'Enabled');
+			$this->define_column('featured', 'Featured');
 			$this->define_multi_relation_column('images', 'images', 'Images', '@name')->invisible();
 
 			$this->defined_column_list = array();
@@ -46,7 +47,8 @@
 		}
 
 		public function define_form_fields($context = null) {
-			$this->add_form_field('is_enabled')->tab($this->strings['model_title'])->renderAs(frm_checkbox);
+			$this->add_form_field('is_enabled', 'left')->tab($this->strings['model_title'])->renderAs(frm_checkbox);
+			$this->add_form_field('featured', 'right')->tab($this->strings['model_title'])->renderAs(frm_checkbox);
 			$this->add_form_field('title', 'left')->tab($this->strings['model_title'])->renderAs(frm_text);
 			$this->add_form_field('slug', 'right')->tab($this->strings['model_title'])->renderAs(frm_text);
 			$this->add_form_field('author_name', 'full')->tab($this->strings['model_title'])->renderAs(frm_text);
