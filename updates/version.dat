@@ -3,3 +3,4 @@
 #3|0.0.3 Remove files from statements.
 #4|0.0.4 Fix delete button in statements controller.
 #5|0.0.5 Add featured status to statuses
+#6|0.0.6 Add association with a product

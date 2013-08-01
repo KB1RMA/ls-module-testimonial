@@ -13,6 +13,10 @@
 			'images' => array('class_name' => 'Db_File', 'foreign_key' => 'master_object_id', 'conditions' => "master_object_class='Testimonial_Statement' and field='images'", 'order' => 'sort_order, id', 'delete' => true)
 		);
 
+		public $belongs_to = array(
+			'product' => array('class_name' => 'Shop_Product', 'foreign_key' => 'product_id')
+		);
+
 		protected $api_added_columns = array();
 
 		public function __construct() {
@@ -40,6 +44,7 @@
 			$this->define_column('is_enabled', 'Enabled');
 			$this->define_column('featured', 'Featured');
 			$this->define_multi_relation_column('images', 'images', 'Images', '@name')->invisible();
+			$this->define_relation_column('product', 'product', 'Product', db_varchar, '@name');
 
 			$this->defined_column_list = array();
 			Backend::$events->fireEvent("{$this->strings['module_name']}:onExtend{$this->strings['model_title']}Model", $this, $context);
@@ -66,6 +71,7 @@
 			$editor_config->apply_to_form_field($field);
 
 			$this->add_form_field('images')->renderAs(frm_file_attachments)->renderFilesAs('image_list')->addDocumentLabel('Add image(s)')->tab('Images')->noAttachmentsLabel('There are no images uploaded.')->noLabel()->imageThumbSize(555)->fileDownloadBaseUrl(url('ls_backend/files/get/'));
+			$this->add_form_field('product')->emptyOption('No Product')->tab($this->strings['model_title']);
 
 			Backend::$events->fireEvent("{$this->strings['module_name']}:onExtend{$this->strings['model_title']}Form", $this, $context);
 
