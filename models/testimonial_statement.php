@@ -119,6 +119,13 @@
 			$this->sort_order = $this->id;
 		}
 
+		public function image_url($index, $width, $height, $returnJpeg = true, $params = array('mode' => 'keep_ratio')) {
+			if ($index < 0 || $index > $this->images->count-1)
+				return null;
+
+			return $this->images[$index]->getThumbnailPath($width, $height, $returnJpeg, $params);
+		}
+
 		/**
 		 * This is a special static method to be used if a random Statement is needed in a certain place.
 		 *
