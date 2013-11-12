@@ -34,7 +34,7 @@
 			}
 
 			if($first_tab) {
-				$tab = $tab_collection->tab('testimonial', 'Testimonial', $first_tab, 30);
+				$tab = $tab_collection->tab('testimonial', 'Testimonials', $first_tab, 30);
 				
 				foreach($tabs as $tab_id => $tab_info) {
 					if($tab_info[3])
